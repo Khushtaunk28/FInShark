@@ -20,8 +20,8 @@ namespace api.Mappers
                 Purchase = stockModel.Purchase,
                 LastDividend = stockModel.LastDividend,
                 Industry = stockModel.Industry,
-                MarketCap = stockModel.MarketCap
-
+                MarketCap = stockModel.MarketCap,
+                Comments=stockModel.Comments.Select(c=> c.ToCommentDto()).ToList()
             };
         }
 
@@ -33,7 +33,7 @@ namespace api.Mappers
                 Purchase = stockDto.Purchase,
                 LastDividend = stockDto.LastDividend,
                 Industry = stockDto.Industry,
-                MarketCap = stockDto.MarketCap
+                MarketCap = stockDto.MarketCap,
             };
         }
     }

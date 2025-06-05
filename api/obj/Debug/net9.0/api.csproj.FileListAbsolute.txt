@@ -151,3 +151,7 @@ C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll

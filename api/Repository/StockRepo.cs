@@ -20,7 +20,7 @@ namespace api.Repository
         }
           public async Task<List<Stock>> GetAllSync()
         {
-           return await _context.Stock.ToListAsync();
+           return await _context.Stock.Include(c=> c.Comments).ToListAsync();
         }
 
         public async Task<Stock> CreateAsync(Stock stockmodel)
@@ -44,7 +44,7 @@ namespace api.Repository
 
         public async Task<Stock?> GetByIdAsync(int id)
         {
-            var stock =  await _context.Stock.FindAsync(id);
+            var stock =  await _context.Stock.Include(c=> c.Comments).FirstOrDefaultAsync(i=> i.Id==id);
             if (stock == null)
             {
                 return null;
