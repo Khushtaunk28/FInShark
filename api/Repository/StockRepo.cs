@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.Dtos.Stock;
 using api.Interfaces;
 using api.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
@@ -16,9 +18,58 @@ namespace api.Repository
         {
             _context = context;
         }
-        public Task<List<Stock>> GetAllSync()
+          public async Task<List<Stock>> GetAllSync()
         {
-            return _context.Stock.ToListAsync();
+           return await _context.Stock.ToListAsync();
+        }
+
+        public async Task<Stock> CreateAsync(Stock stockmodel)
+        {
+            await _context.Stock.AddAsync(stockmodel);
+            await _context.SaveChangesAsync();
+            return stockmodel;
+        }
+
+        public async Task<Stock?> DeleteAsync(int id)
+        {
+             var stockModel =await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
+            if (stockModel == null)
+            {
+                return null;
+            }
+             _context.Stock.Remove(stockModel);
+            await _context.SaveChangesAsync();
+            return stockModel;
+        }
+
+        public async Task<Stock?> GetByIdAsync(int id)
+        {
+            var stock =  await _context.Stock.FindAsync(id);
+            if (stock == null)
+            {
+                return null;
+            }
+            return stock;
+        }
+
+        public async Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
+        {
+            var stockModel = await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
+            if (stockModel == null)
+            {
+                return null;
+            }
+
+            stockModel.Symbol = stockDto.Symbol;
+            stockModel.CompanyName = stockDto.CompanyName;
+            stockModel.Purchase = stockDto.Purchase;
+            stockModel.LastDividend = stockDto.LastDividend;
+            stockModel.Industry = stockDto.Industry;
+            stockModel.MarketCap = stockDto.MarketCap;
+
+            await _context.SaveChangesAsync();
+
+            return stockModel;
         }
     }
 }
