@@ -148,3 +148,6 @@ C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\MongoDB.Driver.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\SharpCompress.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Snappier.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\ZstdSharp.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
