@@ -6,6 +6,7 @@ using api.Data;
 using api.Dtos.Stock;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
@@ -46,11 +47,11 @@ namespace api.Controllers
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.toStockDto());
         }
-        
+
         [HttpPut("{id}")]
         public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto stockDto)
         {
-            var stockModel = _context.Stock.FirstOrDefault(x=> x.Id == id);
+            var stockModel = _context.Stock.FirstOrDefault(x => x.Id == id);
             if (stockModel == null)
             {
                 return NotFound();
@@ -67,7 +68,22 @@ namespace api.Controllers
             _context.SaveChanges();
 
             return Ok(stockModel.toStockDto());
-        }  
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteById([FromRoute] int id)
+        {
+            var stockModel = _context.Stock.FirstOrDefault(x => x.Id == id);
+            if (stockModel == null)
+            {
+                return NotFound("ID Dont Exist");
+            }
+            _context.Stock.Remove(stockModel);
+            _context.SaveChanges();
+            return NoContent();
+        }
+        
 
     }
 }
