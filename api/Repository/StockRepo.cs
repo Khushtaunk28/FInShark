@@ -11,16 +11,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
 {
-    public class StockRepo: IStockRepo
+    public class StockRepo : IStockRepo
     {
         private readonly ApplicationDBContext _context;
         public StockRepo(ApplicationDBContext context)
         {
             _context = context;
         }
-          public async Task<List<Stock>> GetAllSync()
+        public async Task<List<Stock>> GetAllSync()
         {
-           return await _context.Stock.Include(c=> c.Comments).ToListAsync();
+            return await _context.Stock.Include(c => c.Comments).ToListAsync();
         }
 
         public async Task<Stock> CreateAsync(Stock stockmodel)
@@ -32,19 +32,19 @@ namespace api.Repository
 
         public async Task<Stock?> DeleteAsync(int id)
         {
-             var stockModel =await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
+            var stockModel = await _context.Stock.FirstOrDefaultAsync(x => x.Id == id);
             if (stockModel == null)
             {
                 return null;
             }
-             _context.Stock.Remove(stockModel);
+            _context.Stock.Remove(stockModel);
             await _context.SaveChangesAsync();
             return stockModel;
         }
 
         public async Task<Stock?> GetByIdAsync(int id)
         {
-            var stock =  await _context.Stock.Include(c=> c.Comments).FirstOrDefaultAsync(i=> i.Id==id);
+            var stock = await _context.Stock.Include(c => c.Comments).FirstOrDefaultAsync(i => i.Id == id);
             if (stock == null)
             {
                 return null;
@@ -70,6 +70,11 @@ namespace api.Repository
             await _context.SaveChangesAsync();
 
             return stockModel;
+        }
+
+        public Task<bool> StockExists(int id)
+        {
+            return _context.Stock.AnyAsync(s=> s.Id==id );
         }
     }
 }
