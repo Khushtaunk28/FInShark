@@ -17,7 +17,9 @@ builder.Services.AddDbContext<ApplicationDBContext>(Options =>
     Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddScoped<IStockRepo,StockRepo>();
+builder.Services.AddScoped<IStockRepo, StockRepo>();
+builder.Services.AddScoped<ICommnetRepo,CommentRepo>();
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
