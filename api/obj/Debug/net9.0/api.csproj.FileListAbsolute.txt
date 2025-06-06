@@ -161,3 +161,5 @@ C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
