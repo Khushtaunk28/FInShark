@@ -155,3 +155,9 @@ C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPat
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+C:\Users\KIIT\Desktop\FinShark\api\bin\Debug\net9.0\api.staticwebassets.endpoints.json
+C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\scopedcss\bundle\api.styles.css
+C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.build.json.cache
+C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.development.json
+C:\Users\KIIT\Desktop\FinShark\api\obj\Debug\net9.0\staticwebassets.build.endpoints.json

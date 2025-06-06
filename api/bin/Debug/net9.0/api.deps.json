@@ -10,7 +10,6 @@
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "9.0.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.5",
-          "Microsoft.AspNetCore.Razor.Design": "2.3.0",
           "Microsoft.EntityFrameworkCore.Design": "9.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.0",
@@ -111,7 +110,6 @@
           }
         }
       },
-      "Microsoft.AspNetCore.Razor.Design/2.3.0": {},
       "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -1173,13 +1171,6 @@
       "sha512": "sha512-yZLOciYlpaOO/mHPOpgeSZTv8Lc7fOOVX40eWJJoGs/S9Ny9CymDuKKQofGE9stXGGM9EEnnuPeq0fhR8kdFfg==",
       "path": "microsoft.aspnetcore.openapi/9.0.5",
       "hashPath": "microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512"
-    },
-    "Microsoft.AspNetCore.Razor.Design/2.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-f5wyCM2WKfa6IPSNimPbwcwugCs7bmINjxrwL/wU8yi8OHXg3kp4cCOP1vTXRp48n0y9N1syvZ8q0cjpUuWY1g==",
-      "path": "microsoft.aspnetcore.razor.design/2.3.0",
-      "hashPath": "microsoft.aspnetcore.razor.design.2.3.0.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/7.0.0": {
       "type": "package",
