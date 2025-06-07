@@ -31,8 +31,8 @@ namespace api.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             var stocks = await _stockRepo.GetAllSync(query);
-            var stcokDto=stocks.Select(s => s.toStockDto());
-            return Ok(stocks);
+            var stcokDto=stocks.Select(s => s.toStockDto()).ToList();
+            return Ok(stcokDto);
         }
 
         [HttpGet("{id:int}")]

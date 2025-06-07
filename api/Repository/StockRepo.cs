@@ -21,7 +21,7 @@ namespace api.Repository
         }
         public async Task<List<Stock>> GetAllSync(QueryObject query)
         {
-            var stock = _context.Stock.Include(c => c.Comments).AsQueryable();
+            var stock = _context.Stock.Include(c => c.Comments).ThenInclude(c=>c.AppUser).AsQueryable();
             if (!string.IsNullOrWhiteSpace(query.CompanyName))
             {
                 stock = stock.Where(s => s.CompanyName.Contains(query.CompanyName));
