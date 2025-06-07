@@ -64,6 +64,8 @@ builder.Services.AddControllers().AddNewtonsoftJson(Options =>
 
 builder.Services.AddScoped<IStockRepo, StockRepo>();
 builder.Services.AddScoped<ICommnetRepo, CommentRepo>();
+builder.Services.AddScoped<IPortfolioRepo,PortfolioRepo>();
+
 builder.Services.AddIdentity<AppUser, IdentityRole>(Options =>
 {
     Options.Password.RequireDigit = true;
