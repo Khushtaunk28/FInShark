@@ -7,6 +7,7 @@ using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
@@ -16,10 +17,12 @@ namespace api.Controllers
     {
         private readonly UserManager<AppUser> _usermanager;
         private readonly ITokenService _tokenservice;
-        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService)
+        private readonly SignInManager<AppUser> _signinmanager;
+        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService, SignInManager<AppUser> signInManager)
         {
             _usermanager = userManager;
             _tokenservice = tokenService;
+            _signinmanager = signInManager;
         }
 
         [HttpPost("register")]
@@ -46,7 +49,7 @@ namespace api.Controllers
                             {
                                 UserName = appUser.UserName,
                                 Email = appUser.Email,
-                                Token=_tokenservice.CreateToken(appUser)
+                                Token = _tokenservice.CreateToken(appUser)
                             }
                         );
                     }
@@ -59,12 +62,38 @@ namespace api.Controllers
                 {
                     return StatusCode(500, createUser.Errors);
                 }
-                
+
             }
             catch (Exception e)
             {
                 return StatusCode(500, e);
             }
+        }
+
+        //login
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDto loginDto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var user = await _usermanager.Users.FirstOrDefaultAsync(x => x.UserName == loginDto.Username);
+            if (user == null)
+            {
+                return Unauthorized("User Not found");
+            }
+            var result = await _signinmanager.CheckPasswordSignInAsync(user, loginDto.Password, false);
+            if (!result.Succeeded)
+                return Unauthorized("Wrong Password");
+            return Ok(
+                new NewUserDto
+                {
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    Token=_tokenservice.CreateToken(user)
+                }
+            );
+
         }
         
 
